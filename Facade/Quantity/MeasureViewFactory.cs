@@ -15,7 +15,7 @@ namespace Abc.Facade.Quantity
                 Id = v.Id,
                 Name = v.Name,
                 Code = v.Code,
-                Definition = v.Id,
+                Definition = v.Definition,
                 ValidFrom = v.ValidFrom,
                 ValidTo = v.ValidTo
             };
@@ -29,7 +29,7 @@ namespace Abc.Facade.Quantity
                 Id = o.Data.Id,
                 Name = o.Data.Name,
                 Code = o.Data.Code,
-                Definition = o.Data.Id,
+                Definition = o.Data.Definition,
                 ValidFrom = o.Data.ValidFrom,
                 ValidTo = o.Data.ValidTo
             };
