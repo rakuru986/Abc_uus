@@ -14,6 +14,9 @@ namespace Abc.Domain.Common
 
         string SortOrder { get; set; }
         string SearchString { get; set; }
+        int PageIndex { get; set; }
+        bool HasNextPage { get; set; }
+        bool HasPreviousPage { get; set; }
 
     }
 }

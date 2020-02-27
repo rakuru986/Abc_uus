@@ -38,7 +38,7 @@
             </th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
-                   asp-route-currentFilter="@Model.CurrentFilter">>
+                   asp-route-currentFilter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Items[0].ValidFrom)
                 </a>
             </th>
@@ -53,10 +53,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.Code)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Code)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Definition)
