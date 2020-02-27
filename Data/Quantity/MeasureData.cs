@@ -4,5 +4,6 @@ namespace Abc.Data.Quantity
 {
     public class MeasureData: DefinedEntityData
     {
+
     }
 }
