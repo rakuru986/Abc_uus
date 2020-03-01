@@ -6,7 +6,7 @@ using Abc.Data.Common;
 
 namespace Abc.Data.Quantity
 {
-    public class UniData: DefinedEntityData
+    public sealed class UniData: DefinedEntityData
     {
         public string MeasureId { get; set; }
     }

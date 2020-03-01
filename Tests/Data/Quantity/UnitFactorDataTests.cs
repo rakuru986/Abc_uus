@@ -1,6 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Abc.Data.Common;
 using Abc.Data.Quantity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -8,7 +5,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests.Data.Quantity
 {
     [TestClass]
-    public class UnitDataTests: SealedClassTest<UniData, DefinedEntityData>
+    public class UnitFactorDataTests : SealedClassTest<UnitFactorData, PeriodData>
     {
+
     }
 }
