@@ -10,5 +10,10 @@ namespace Tests.Data.Quantity
     [TestClass]
     public class UnitDataTests: SealedClassTest<UniData, DefinedEntityData>
     {
+        [TestMethod]
+        public void MeasureIdTest()
+        {
+            isNullableProperty(() => obj.MeasureId, X => obj.MeasureId = X);
+        }
     }
 }

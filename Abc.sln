@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pages", "Pages\Pages.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soft", "Soft\Soft.csproj", "{2EB81011-4AA2-4A01-BB41-6BF1C391B68C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6C6AFC53-4DBE-49E6-AE42-B6947510B6E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{6C6AFC53-4DBE-49E6-AE42-B6947510B6E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aids", "Aids\Aids.csproj", "{8C9DEB6D-8291-4932-B781-56888600128A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{6C6AFC53-4DBE-49E6-AE42-B6947510B6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C6AFC53-4DBE-49E6-AE42-B6947510B6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C6AFC53-4DBE-49E6-AE42-B6947510B6E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C9DEB6D-8291-4932-B781-56888600128A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C9DEB6D-8291-4932-B781-56888600128A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C9DEB6D-8291-4932-B781-56888600128A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C9DEB6D-8291-4932-B781-56888600128A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
