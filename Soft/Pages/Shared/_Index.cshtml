@@ -4,18 +4,22 @@
     ViewData["Title"] = Model.PageTitle;
 }
 
-    <h1>ViewData["Title"]</h1>
 
-<p>
-    @RenderSection("Create")
-</p>
+    <p>
+        <h1>@ViewData["Title"]</h1>
+
+        @RenderSection("Create")
+    </p>
 
 <form asp-page="./Index" method="get">
-    <div class="form-inline col-md-6">
+    <div class="form-inline">
         <p>
             Find by:
+            &nbsp;
             <input class="form-control" type="text" name="SearchString" value="@Model.SearchString" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
+            &nbsp;
+            <input type="submit" value="Search" class="btn btn-primary" />
+            &nbsp;
             <a asp-page="./Index">Back to full List</a>
         </p>
     </div>
@@ -29,7 +33,7 @@
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
-<div class="form-inline col-md-6">
+<div class="form-inline">
 
     <a asp-page="./Index"
        asp-route-sortOrder="@Model.CurrentSort"
@@ -38,6 +42,7 @@
        class="btn btn-primary @prevDisabled">
         First
     </a>
+    &nbsp;
     <a asp-page="./Index"
        asp-route-sortOrder="@Model.CurrentSort"
        asp-route-pageIndex="@(Model.PageIndex - 1)"
@@ -45,7 +50,9 @@
        class="btn btn-primary @prevDisabled">
         Previous
     </a>
+    &nbsp;
     Page @Model.PageIndex of @Model.TotalPages
+    &nbsp;
     <a asp-page="./Index"
        asp-route-sortOrder="@Model.CurrentSort"
        asp-route-pageIndex="@(Model.PageIndex + 1)"
@@ -53,6 +60,7 @@
        class="btn btn-primary @nextDisabled">
         Next
     </a>
+    &nbsp;
     <a asp-page="./Index"
        asp-route-sortOrder="@Model.CurrentSort"
        asp-route-pageIndex="@(Model.TotalPages)"
