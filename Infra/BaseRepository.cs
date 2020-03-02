@@ -1,36 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
+using Abc.Data.Common;
 using Abc.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Abc.Infra
 {
-    public class BaseRepository<T>: ICrudMethods<T>
+    public abstract class BaseRepository<TDomain, TData> : ICrudMethods<TDomain>
+        where TData : PeriodData, new() 
+        where TDomain : Entity<TData>, new()
     {
-        public Task<List<T>> Get()
+        protected internal DbContext db;
+        protected internal DbSet<TData> dbSet;
+
+        protected BaseRepository(DbContext c, DbSet<TData> s)
+        {
+            db = c;
+            dbSet = s;
+        }
+        public virtual async Task<List<TDomain>> Get()
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> Get(string id)
+        public async Task<TDomain> Get(string id)
         {
-            throw new NotImplementedException();
+            if ( id is null) return new  TDomain();
+           
+            var d = await dbSet.FirstOrDefaultAsync(m =>isThisRecord(m, id));
+            var obj = new TDomain {Data = d};
+            return obj;
         }
 
-        public Task Delete(string id)
+        protected virtual bool isThisRecord(TData d, string id)
         {
-            throw new NotImplementedException();
+            if (d is UniqueEntityData) return (d as UniqueEntityData).Id == id;
+            
+            return true;
         }
 
-        public Task Add(T obj)
+        public async Task Delete(string id)
         {
-            throw new NotImplementedException();
+            if (id is null) return;
+            var d = await dbSet.FindAsync(id);
+
+            if (d is null) return;
+
+            dbSet.Remove(d);
+            await db.SaveChangesAsync();
         }
 
-        public Task Update(T obj)
+        public async Task Add(TDomain obj)
         {
-            throw new NotImplementedException();
+            if (obj?.Data is null) return;
+            dbSet.Add(obj.Data);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task Update(TDomain obj)
+        {
+            db.Attach(obj.Data).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                //if (!MeasureViewExists(MeasureView.Id))
+                //{
+                //    return NotFound();
+                //}
+                //else
+                //{
+                throw;
+                //}
+            }
         }
     }
 }
