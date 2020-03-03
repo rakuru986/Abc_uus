@@ -9,15 +9,15 @@ namespace Abc.Pages.Extensions
 {
     public static class DisplayControlsForHtmlExtensions
     {
-        public static IHtmlContent DisplayControlsFor<TClassType, TPropertyType>(this  IHtmlHelper<TClassType> htmlHelper, Expression<Func<TClassType, TPropertyType>> expression)
+        public static IHtmlContent DisplayControlsFor<TModel, TResult>(this  IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
         { 
             var s = HtmlString(htmlHelper, expression);
             return new HtmlContentBuilder(s);
         }
 
-        internal static List<object> HtmlString<TClassType, TPropertyType>(
-            IHtmlHelper<TClassType> htmlHelper,
-            Expression<Func<TClassType, TPropertyType>> expression)
+        internal static List<object> HtmlString<TModel, TResult>(
+            IHtmlHelper<TModel> htmlHelper,
+            Expression<Func<TModel, TResult>> expression)
         {
             return new List<Object>
             {

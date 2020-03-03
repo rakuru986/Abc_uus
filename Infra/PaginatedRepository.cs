@@ -11,7 +11,7 @@ namespace Abc.Infra
         where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
     {
-        public int PageSize { get; set; } = 1;
+        public int PageSize { get; set; } = 12;
         public int PageIndex { get; set; }
         public bool HasNextPage { get; set; }
         public bool HasPreviousPage { get; set; }
