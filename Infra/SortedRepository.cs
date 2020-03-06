@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Abc.Data.Common;
 using Abc.Domain.Common;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 //case "ValidFrom":
@@ -66,7 +67,7 @@ namespace Abc.Infra
         internal IQueryable<TData> setOrderBy(IQueryable<TData> data,Expression<Func<TData, object>> e) => isDecending() ? data.OrderByDescending(e) : data.OrderBy(e);
         
 
-         internal bool isDecending() => SortOrder.EndsWith(DescendingString);
+         internal bool isDecending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
 
     }
 }
