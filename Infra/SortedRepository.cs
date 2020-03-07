@@ -37,9 +37,7 @@ namespace Abc.Infra
         internal Expression<Func<TData, object>> createExpression()
         {
             var property = findProperty();
-            if (property is null) return null;
-
-            return lambdaExpression(property);
+            return property is null ? null : lambdaExpression(property);
         }
 
         internal Expression<Func<TData, object>> lambdaExpression(PropertyInfo p)
@@ -64,10 +62,17 @@ namespace Abc.Infra
             return SortOrder;
         }
 
-        internal IQueryable<TData> setOrderBy(IQueryable<TData> data,Expression<Func<TData, object>> e) => isDecending() ? data.OrderByDescending(e) : data.OrderBy(e);
-        
+        internal IQueryable<TData> setOrderBy(IQueryable<TData> data, Expression<Func<TData, object>> e)
+        {
+            if (data is null) return null;
+            if (e is null) return data;
+            try { return isDecending() ? data.OrderByDescending(e) : data.OrderBy(e); }
+            catch { return data; }
+        }
 
-         internal bool isDecending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
+
+
+        internal bool isDecending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
 
     }
 }
