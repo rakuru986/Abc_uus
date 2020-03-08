@@ -7,12 +7,7 @@ using Abc.Domain.Common;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-//case "ValidFrom":
-//measures = measures.OrderBy(s => s.ValidFrom);
-//break;
-//case "ValidFrom_desc":
-//measures = measures.OrderByDescending(s => s.ValidFrom);
-//break;
+
 
 namespace Abc.Infra
 {
