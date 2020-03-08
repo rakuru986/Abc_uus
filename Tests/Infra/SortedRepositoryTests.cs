@@ -24,7 +24,7 @@ namespace Abc.Tests.Infra
             {
             }
 
-            protected internal override Measure toDomainObjec(MeasureData d) => new Measure(d);
+            protected internal override Measure toDomainObject(MeasureData d) => new Measure(d);
 
             protected override async Task<MeasureData> getData(string id)
             {

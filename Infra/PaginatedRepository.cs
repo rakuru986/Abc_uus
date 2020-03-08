@@ -33,30 +33,16 @@ namespace Abc.Infra
         }
 
        
-        internal int countTotalPages(int count, in int pageSize)
-        {
-            return (int)Math.Ceiling(count / (double)pageSize);
-        }
+        internal int countTotalPages(int count, in int pageSize) => (int)Math.Ceiling(count / (double)pageSize);
+        
 
-        private int getItemCount()
-        {
-            var query = base.createSqlQuery();
-            return query.CountAsync().Result;
-        }
-
-        protected internal override IQueryable<TData> createSqlQuery()
-        {
-            var query =  base.createSqlQuery();
-            query = addSkipAndTake(query);
-            return query;
-        }
-
-        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
-        {
-            var q = query.Skip(
-                    (PageIndex - 1) * PageSize)
+        internal int getItemCount() => base.createSqlQuery().CountAsync().Result;
+        
+        protected internal override IQueryable<TData> createSqlQuery() => addSkipAndTake(base.createSqlQuery());
+        
+        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query) => query
+            .Skip((PageIndex - 1) * PageSize)
                 .Take(PageSize);
-            return q;
-        }
+        
     }
 }
