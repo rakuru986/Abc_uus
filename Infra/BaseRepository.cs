@@ -27,10 +27,10 @@ namespace Abc.Infra
             return toDomainObjectList(set);
         }
 
-        private List<TDomain> toDomainObjectList(List<TData> set) => set.Select(toDomainObject).ToList();
+        private List<TDomain> toDomainObjectList(List<TData> set) => set.Select(toDomainObjec).ToList();
         
 
-        protected internal abstract TDomain toDomainObject(TData periodData);
+        protected internal abstract TDomain toDomainObjec(TData periodData);
         
         internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
         
