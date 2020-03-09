@@ -16,4 +16,4 @@ namespace Abc.Infra
             => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
         
     }
-}
+}  
