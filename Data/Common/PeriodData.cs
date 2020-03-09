@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Abc.Data.Common
-{
+{ 
     public abstract class PeriodData
     { 
         public DateTime? ValidFrom { get; set; }
