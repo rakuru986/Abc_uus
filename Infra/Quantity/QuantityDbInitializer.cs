@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Abc.Data.Quantity;
 using Microsoft.EntityFrameworkCore.Internal;
 
