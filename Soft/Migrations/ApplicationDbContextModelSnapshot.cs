@@ -33,10 +33,10 @@ namespace Soft.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ValidFrom")
+                    b.Property<DateTime?>("ValidFrom")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ValidTo")
+                    b.Property<DateTime?>("ValidTo")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -58,10 +58,10 @@ namespace Soft.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ValidFrom")
+                    b.Property<DateTime?>("ValidFrom")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ValidTo")
+                    b.Property<DateTime?>("ValidTo")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -86,10 +86,10 @@ namespace Soft.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ValidFrom")
+                    b.Property<DateTime?>("ValidFrom")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ValidTo")
+                    b.Property<DateTime?>("ValidTo")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -108,10 +108,10 @@ namespace Soft.Migrations
                     b.Property<double>("Factor")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("ValidFrom")
+                    b.Property<DateTime?>("ValidFrom")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ValidTo")
+                    b.Property<DateTime?>("ValidTo")
                         .HasColumnType("datetime2");
 
                     b.HasKey("UnitId", "SystemOfUnitsId");
