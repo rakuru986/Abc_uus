@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Abc.Aids;
+using Abc.Data.Quantity;
 using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,21 +19,33 @@ namespace Abc.Pages.Quantity
         {
             data = r;
             PageTitle = "Measures";
-        } 
+        }
 
 
-        [BindProperty]
-        public MeasureView Item { get; set; }
+        [BindProperty] public MeasureView Item { get; set; }
         public IList<MeasureView> Items { get; set; }
 
         public string ItemId => Item.Id;
+
         public string PageTitle { get; set; }
         public string PageSubTitle { get; set; }
-        public string CurrentSort { get; set; } = "Current sort";
-        public string CurrentFilter { get; set; } = "Current filter";
-        public int PageIndex { get; set; } = 3;
 
-        public int TotalPages { get; set; } = 10;
+        public string CurrentSort { get; set; } = "Current sort";
+
+
+        public string CurrentFilter { get; set; } = "Current filter";
+        public string SearchString { get; set; }
+
+        public int PageIndex
+        {
+            get => data.PageIndex;
+            set => data.PageIndex = value;
+        }
+
+        public bool HasPreviousPage => data.HasPreviousPage;
+        public bool HasNextPage => data.HasNextPage;
+
+        public int TotalPages => data.TotalPages;
 
         protected internal async Task<bool> addObject()
         {
@@ -46,6 +61,7 @@ namespace Abc.Pages.Quantity
             {
                 return false;
             }
+
             return true;
         }
 
@@ -66,6 +82,39 @@ namespace Abc.Pages.Quantity
         protected internal async Task deleteObject(string id)
         {
             await data.Delete(id);
+        }
+
+        public string GetSortString(Expression<Func<MeasureData, object>> e, string page)
+        {
+            var name = GetMember.Name(e);
+            string sortOrder;
+            if (string.IsNullOrEmpty(CurrentSort)) sortOrder = name;
+            else if (!CurrentSort.StartsWith(name)) sortOrder = name;
+            else if (CurrentSort.EndsWith("_desc")) sortOrder = name;
+            else sortOrder = name + "_desc";
+            return $"{page}?sortOrder={sortOrder}&currentFilter={CurrentFilter}";
+
+        }
+
+        protected internal async Task getList(string sortOrder, string currentFilter, string searchString,
+            int? pageIndex)
+        {
+            sortOrder = string.IsNullOrEmpty(sortOrder) ? "Name" : sortOrder;
+            CurrentSort = sortOrder;
+
+            if (searchString != null) { pageIndex = 1; }
+            else { searchString = currentFilter; }
+
+            CurrentFilter = searchString;
+
+            data.SortOrder = sortOrder;
+            SearchString = CurrentFilter;
+            data.SearchString = searchString;
+
+            PageIndex = data.PageIndex = pageIndex ?? 1;
+            var l = await data.Get();
+            Items = new List<MeasureView>();
+            foreach (var e in l) Items.Add(MeasureViewFactory.Create(e));
         }
     }
 }
