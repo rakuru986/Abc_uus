@@ -1,11 +1,7 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Abc.Domain.Quantity;
-using Abc.Facade.Quantity;
 using Abc.Pages.Quantity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace Soft.Areas.Quantity.Pages.Measures
 {
@@ -16,23 +12,13 @@ namespace Soft.Areas.Quantity.Pages.Measures
         }
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null) return NotFound();
-
-
-            Item = MeasureViewFactory.Create(await data.Get(id)); 
-
-            if (Item == null) return NotFound();
+            await getObject(id);
             return Page();
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid) return Page();
-
-            await data.Update(MeasureViewFactory.Create(Item));
-
+            await updateObject();
             return RedirectToPage("./Index");
         }
     }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +32,40 @@ namespace Abc.Pages.Quantity
 
         public int TotalPages { get; set; } = 10;
 
+        protected internal async Task<bool> addObject()
+        {
+            //TOdO
+            // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+            // more details see https://aka.ms/RazorPagesCRUD.   
+            try
+            {
+                if (!ModelState.IsValid) return false;
+                await data.Add(MeasureViewFactory.Create(Item));
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
 
+        protected internal async Task updateObject()
+        {
+            //TOdO
+            // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+            // more details see https://aka.ms/RazorPagesCRUD.   
+            await data.Update(MeasureViewFactory.Create(Item));
+        }
+
+        protected internal async Task getObject(string id)
+        {
+            var o = await data.Get(id);
+            Item = MeasureViewFactory.Create(await data.Get(id));
+        }
+
+        protected internal async Task deleteObject(string id)
+        {
+            await data.Delete(id);
+        }
     }
 }

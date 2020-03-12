@@ -7,13 +7,6 @@ using Abc.Domain.Common;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-//case "ValidFrom":
-//measures = measures.OrderBy(s => s.ValidFrom);
-//break;
-//case "ValidFrom_desc":
-//measures = measures.OrderByDescending(s => s.ValidFrom);
-//break;
-
 namespace Abc.Infra
 {
     public abstract class SortedRepository<TDomain, TData>: BaseRepository<TDomain, TData>, ISorting
@@ -66,8 +59,7 @@ namespace Abc.Infra
         {
             if (string.IsNullOrEmpty(SortOrder)) return string.Empty;
             var idx = SortOrder.IndexOf(DescendingString, StringComparison.Ordinal);
-            if (idx > 0) return SortOrder.Remove(idx);
-            return SortOrder;
+            return idx > 0 ? SortOrder.Remove(idx) : SortOrder;
         }
 
         internal IQueryable<TData> addOrderBy(IQueryable<TData> query, Expression<Func<TData, object>> e)
