@@ -71,7 +71,7 @@ namespace Soft.Migrations
                     b.ToTable("SystemsOfUnits");
                 });
 
-            modelBuilder.Entity("Abc.Data.Quantity.UniData", b =>
+            modelBuilder.Entity("Abc.Data.Quantity.UnitData", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");

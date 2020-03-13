@@ -10,7 +10,6 @@ using Abc.Infra;
 using Abc.Infra.Quantity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Tests;
 
 namespace Abc.Tests.Infra
 {
