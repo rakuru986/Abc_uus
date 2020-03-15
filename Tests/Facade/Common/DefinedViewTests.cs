@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Abc.Tests.Facade.Common
 {
     [TestClass]
-    public class DefinedViewTestses : AbstractClassTests<DefinedView, NamedView>
+    public class DefinedViewTests : AbstractClassTests<DefinedView, NamedView>
     {
         private class testClass : DefinedView
         {

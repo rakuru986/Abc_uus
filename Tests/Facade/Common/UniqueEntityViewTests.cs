@@ -4,9 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Abc.Tests.Facade.Common
 {
     [TestClass]
-    public class NamedViewTestses : AbstractClassTests<NamedView, UniqueEntityView>
+    public class UniqueEntityViewTests : AbstractClassTests<UniqueEntityView, PeriodView>
     {
-        private class testClass : NamedView
+        private class testClass : UniqueEntityView
         {
         }
 
@@ -18,14 +18,9 @@ namespace Abc.Tests.Facade.Common
         }
 
         [TestMethod]
-        public void NameTest()
+        public void IdTest()
         {
-            isNullableProperty(() => obj.Name, X => obj.Name= X);
-        }
-        [TestMethod]
-        public void CodeTest()
-        {
-            isNullableProperty(() => obj.Code, X => obj.Code= X);
+            isNullableProperty(() => obj.Id, X => obj.Id = X);
         }
     }
 }

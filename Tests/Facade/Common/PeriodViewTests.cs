@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Abc.Tests.Facade.Common
 {
     [TestClass]
-    public class PeriodViewTestses : AbstractClassTests<PeriodView, object>
+    public class PeriodViewTests : AbstractClassTests<PeriodView, object>
     {
 
         private class testClass : PeriodView
