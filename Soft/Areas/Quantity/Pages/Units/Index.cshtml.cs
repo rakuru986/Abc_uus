@@ -15,7 +15,7 @@ namespace Soft.Areas.Quantity.Pages.Units
     {
         
 
-        public IndexModel(IUnitsRepository r) : base(r)
+        public IndexModel(IUnitsRepository r, IMeasuresRepository m) : base(r, m)
         {
         }
         public async Task OnGetAsync(string sortOrder,
