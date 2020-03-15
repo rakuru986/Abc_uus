@@ -1,12 +1,13 @@
 using Abc.Data.Common;
+using Abc.Facade.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Abc.Tests.Data.Common
+namespace Abc.Tests.Facade.Common
 {
     [TestClass]
-    public class DefinedEntityDataTests : AbstractClassTest<DefinedEntityData, NamedEntityData>
+    public class DefinedViewTestses : AbstractClassTests<DefinedView, NamedView>
     {
-        private class testClass : DefinedEntityData
+        private class testClass : DefinedView
         {
         }
 
@@ -14,13 +15,13 @@ namespace Abc.Tests.Data.Common
         public override void TestInitialize()
         {
             base.TestInitialize();
-            obj = new  testClass();
+            obj = new testClass();
         }
 
         [TestMethod]
         public void DefinitionTest()
         {
-           isNullableProperty(()=>obj.Definition, X=> obj.Definition = X);
+            isNullableProperty(() => obj.Definition, X => obj.Definition = X);
         }
     }
 }

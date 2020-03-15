@@ -7,9 +7,4 @@ namespace Abc.Data.Quantity
     {
         public string MeasureId { get; set; }
     }
-
-    public sealed class CopyOfUniData : DefinedEntityData
-    {
-        public string MeasureId { get; set; }
-    }
 }

@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Abc.Tests
 {
-    public abstract class ClassTest<TClass, TBaseClass>: BaseClassTest<TClass, TBaseClass> where TClass : new()
+    public abstract class ClassTests<TClass, TBaseClass>: BaseClassTests<TClass, TBaseClass> where TClass : new()
     {
         [TestInitialize]
         public override void TestInitialize()
