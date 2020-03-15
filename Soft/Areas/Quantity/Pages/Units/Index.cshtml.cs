@@ -24,5 +24,6 @@ namespace Soft.Areas.Quantity.Pages.Units
             await getList(sortOrder,currentFilter,  searchString,pageIndex);
 
         }
+
     }
 }
