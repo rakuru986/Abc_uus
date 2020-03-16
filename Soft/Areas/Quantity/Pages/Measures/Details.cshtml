@@ -20,6 +20,6 @@
 
 @section Details {
     @Html.HypertextLinkFor(string.Empty, new Link("Show units",
-        url: $"{units}/Index?fixedFilter{measureId}&fixedValue{Model.Item.Id}"))
+        url: $"{units}/Index?fixedFilter={measureId}&fixedValue={Model.Item.Id}"))
 }
 
