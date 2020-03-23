@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Abc.Pages.Extensions
 {
-    public static class DisplayControlsForHtmlExtensions
+    public static class DisplayControlsForHtmlExtension
     {
         public static IHtmlContent DisplayControlsFor<TModel, TResult>(this  IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
         { 
