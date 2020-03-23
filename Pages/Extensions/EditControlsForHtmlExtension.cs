@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Abc.Pages.Extensions
 {
-    public static class EditControlsForHtmlExtensions
+    public static class EditControlsForHtmlExtension
     {
         public static IHtmlContent EditControlsFor<TModel, TResult>(
             this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
