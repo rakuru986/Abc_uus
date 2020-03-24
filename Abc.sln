@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soft", "Soft\Soft.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{6C6AFC53-4DBE-49E6-AE42-B6947510B6E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aids", "Aids\Aids.csproj", "{8C9DEB6D-8291-4932-B781-56888600128A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aids", "Aids\Aids.csproj", "{8C9DEB6D-8291-4932-B781-56888600128A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
