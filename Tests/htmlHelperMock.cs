@@ -9,184 +9,285 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace Abc.Tests {
+namespace Abc.Tests
+{
+    internal class htmlHelperMock<TModel> : IHtmlHelper<TModel>
+    {
+        public IHtmlContent ActionLink(string linkText, string actionName, string controllerName, string protocol, string hostname,
+            string fragment, object routeValues, object htmlAttributes)
+        {
+            throw new NotImplementedException();
+        }
 
-    internal class htmlHelperMock<TModel> : IHtmlHelper<TModel> {
+        public IHtmlContent AntiForgeryToken()
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent ActionLink(string linkText, string actionName, string controllerName, string protocol,
-            string hostname,
-            string fragment, object routeValues, object htmlAttributes) => new htmlContentMock("ActionLink");
-
-        public IHtmlContent AntiForgeryToken() => new htmlContentMock("AntiForgeryToken");
-
-        public MvcForm BeginForm(string actionName, string controllerName, object routeValues, FormMethod method,
-            bool? antiforgery,
-            object htmlAttributes) => null;
+        public MvcForm BeginForm(string actionName, string controllerName, object routeValues, FormMethod method, bool? antiforgery,
+            object htmlAttributes)
+        {
+            throw new NotImplementedException();
+        }
 
         public MvcForm BeginRouteForm(string routeName, object routeValues, FormMethod method, bool? antiforgery,
-            object htmlAttributes) => null;
+            object htmlAttributes)
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent CheckBox(string expression, bool? isChecked, object htmlAttributes)
-            => new htmlContentMock("CheckBox");
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent Display(string expression, string templateName, string htmlFieldName,
-            object additionalViewData)
-            => new htmlContentMock("Display");
+        public IHtmlContent Display(string expression, string templateName, string htmlFieldName, object additionalViewData)
+        {
+            throw new NotImplementedException();
+        }
 
-        public string DisplayName(string expression) => "DisplayName";
+        public string DisplayName(string expression)
+        {
+            throw new NotImplementedException();
+        }
 
-        public string DisplayText(string expression) => "DisplayText";
+        public string DisplayText(string expression)
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent DropDownList(
-            string expression, IEnumerable<SelectListItem> selectList, string optionLabel, object htmlAttributes)
-            => new htmlContentMock("DropDownList");
+        public IHtmlContent DropDownList(string expression, IEnumerable<SelectListItem> selectList, string optionLabel, object htmlAttributes)
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent Editor(string expression, string templateName, string htmlFieldName,
-            object additionalViewData)
-            => new htmlContentMock("Editor");
+        public IHtmlContent Editor(string expression, string templateName, string htmlFieldName, object additionalViewData)
+        {
+            throw new NotImplementedException();
+        }
 
-        string IHtmlHelper<TModel>.Encode(object value) => null;
+        string IHtmlHelper<TModel>.Encode(object value)
+        {
+            throw new NotImplementedException();
+        }
 
-        string IHtmlHelper<TModel>.Encode(string value) => null;
+        string IHtmlHelper<TModel>.Encode(string value)
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent HiddenFor<TResult>(Expression<Func<TModel, TResult>> expression, object htmlAttributes)
-            => new htmlContentMock("HiddenFor");
+        {
+            throw new NotImplementedException();
+        }
 
-        public string IdFor<TResult>(Expression<Func<TModel, TResult>> expression) => "IdFor";
+        public string IdFor<TResult>(Expression<Func<TModel, TResult>> expression)
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent LabelFor<TResult>(Expression<Func<TModel, TResult>> e,
-            string labelText, object htmlAttributes)
-            => new htmlContentMock($"LabelFor{GetMember.Name(e)}");
+            string labelText, object htmlAttributes) => new htmlContentMock($"LabelFor{GetMember.Name(e)}");
+        
 
-        public IHtmlContent ListBoxFor<TResult>(
-            Expression<Func<TModel, TResult>> e, IEnumerable<SelectListItem> selectList, object htmlAttributes)
-            => new htmlContentMock("ListBoxFor");
+        public IHtmlContent ListBoxFor<TResult>(Expression<Func<TModel, TResult>> expression, IEnumerable<SelectListItem> selectList, object htmlAttributes)
+        {
+            throw new NotImplementedException();
+        }
 
         public string NameFor<TResult>(Expression<Func<TModel, TResult>> expression)
-            => "NameFor";
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent PasswordFor<TResult>(Expression<Func<TModel, TResult>> e, object htmlAttributes)
-            => new htmlContentMock("PasswordFor");
+        public IHtmlContent PasswordFor<TResult>(Expression<Func<TModel, TResult>> expression, object htmlAttributes)
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent RadioButtonFor<TResult>(
-            Expression<Func<TModel, TResult>> e, object value, object htmlAttributes)
-            => new htmlContentMock("RadioButtonFor");
+        public IHtmlContent RadioButtonFor<TResult>(Expression<Func<TModel, TResult>> expression, object value, object htmlAttributes)
+        {
+            throw new NotImplementedException();
+        }
 
-        IHtmlContent IHtmlHelper<TModel>.Raw(object value) => null;
+        IHtmlContent IHtmlHelper<TModel>.Raw(object value)
+        {
+            throw new NotImplementedException();
+        }
 
         IHtmlContent IHtmlHelper<TModel>.Raw(string value) => null;
+       
 
-        public IHtmlContent TextAreaFor<TResult>(Expression<Func<TModel, TResult>> e, int rows, int columns,
-            object htmlAttributes)
+        public IHtmlContent TextAreaFor<TResult>(Expression<Func<TModel, TResult>> e, int rows, int columns, object htmlAttributes)
             => new htmlContentMock("TextAreaFor");
 
         public IHtmlContent TextBoxFor<TResult>(
             Expression<Func<TModel, TResult>> e, string format, object htmlAttributes)
-            => new htmlContentMock("TextBoxFor");
+        => new htmlContentMock("TextBoxFor");
+        
 
-        public IHtmlContent ValidationMessageFor<TResult>(
-            Expression<Func<TModel, TResult>> e, string message, object htmlAttributes, string tag)
+        public IHtmlContent ValidationMessageFor<TResult>(Expression<Func<TModel, TResult>> e, string message, object htmlAttributes, string tag)
             => new htmlContentMock("ValidationMessageFor");
 
         public string ValueFor<TResult>(Expression<Func<TModel, TResult>> e, string format)
             => "ValueFor";
 
-        public ViewDataDictionary<TModel> ViewData { get; } = new ViewDataDictionary<TModel>(new EmptyModelMetadataProvider(),new ModelStateDictionary());
+        public ViewDataDictionary<TModel> ViewData { get; } = null;
 
         public IHtmlContent CheckBoxFor(Expression<Func<TModel, bool>> expression, object htmlAttributes)
-            => new htmlContentMock("CheckBoxFor");
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent DisplayFor<TResult>(Expression<Func<TModel, TResult>> expression, string templateName,
-            string htmlFieldName,
+        public IHtmlContent DisplayFor<TResult>(Expression<Func<TModel, TResult>> expression, string templateName, string htmlFieldName,
             object additionalViewData)
-            => new htmlContentMock("DisplayFor");
+        {
+            throw new NotImplementedException();
+        }
 
         public string DisplayNameForInnerType<TModelItem, TResult>(Expression<Func<TModelItem, TResult>> expression)
-            => "DisplayNameForInnerType";
+        {
+            throw new NotImplementedException();
+        }
 
         public string DisplayNameFor<TResult>(Expression<Func<TModel, TResult>> expression)
-            => "DisplayNameFor";
+        {
+            throw new NotImplementedException();
+        }
 
         public string DisplayTextFor<TResult>(Expression<Func<TModel, TResult>> expression)
-            => "DisplayTextFor";
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent DropDownListFor<TResult>(Expression<Func<TModel, TResult>> expression,
-            IEnumerable<SelectListItem> selectList, string optionLabel,
+        public IHtmlContent DropDownListFor<TResult>(Expression<Func<TModel, TResult>> expression, IEnumerable<SelectListItem> selectList, string optionLabel,
             object htmlAttributes)
-            => new htmlContentMock("DropDownListFor");
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent EditorFor<TResult>(Expression<Func<TModel, TResult>> expression, string templateName,
-            string htmlFieldName,
-            object additionalViewData) => new htmlContentMock("EditorFor");
+        public IHtmlContent EditorFor<TResult>(Expression<Func<TModel, TResult>> expression, string templateName, string htmlFieldName,
+            object additionalViewData) =>new htmlContentMock("EditorFor");
+        
 
-        string IHtmlHelper.Encode(object value) => null;
+        string IHtmlHelper.Encode(object value)
+        {
+            throw new NotImplementedException();
+        }
 
-        string IHtmlHelper.Encode(string value) => null;
+        string IHtmlHelper.Encode(string value)
+        {
+            throw new NotImplementedException();
+        }
 
         public void EndForm() { }
 
-        public string FormatValue(object value, string format) => "FormatValue";
+        public string FormatValue(object value, string format)
+        {
+            throw new NotImplementedException();
+        }
 
-        public string GenerateIdFromName(string fullName) => "GenerateIdFromName";
+        public string GenerateIdFromName(string fullName)
+        {
+            throw new NotImplementedException();
+        }
 
-        public IEnumerable<SelectListItem> GetEnumSelectList(Type enumType) => null;
+        public IEnumerable<SelectListItem> GetEnumSelectList(Type enumType)
+        {
+            throw new NotImplementedException();
+        }
 
-        public IEnumerable<SelectListItem> GetEnumSelectList<TEnum>() where TEnum : struct => null;
+        public IEnumerable<SelectListItem> GetEnumSelectList<TEnum>() where TEnum : struct
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent Hidden(string expression, object value, object htmlAttributes)
-            => new htmlContentMock("Hidden");
+        {
+            throw new NotImplementedException();
+        }
 
-        public string Id(string expression) => "Id";
+        public string Id(string expression)
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent Label(string expression, string labelText, object htmlAttributes)
-            => new htmlContentMock("Label");
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent ListBox(string expression, IEnumerable<SelectListItem> selectList, object htmlAttributes)
-            => new htmlContentMock("ListBox");
+        {
+            throw new NotImplementedException();
+        }
 
-        public string Name(string expression) => "Name";
+        public string Name(string expression)
+        {
+            throw new NotImplementedException();
+        }
 
-        public async Task<IHtmlContent>
-            PartialAsync(string partialViewName, object model, ViewDataDictionary viewData) {
+        public async Task<IHtmlContent> PartialAsync(string partialViewName, object model, ViewDataDictionary viewData)
+        {
             await Task.CompletedTask;
-
             return new htmlContentMock("PartialAsync");
         }
 
         public IHtmlContent Password(string expression, object value, object htmlAttributes)
-            => new htmlContentMock("Password");
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent RadioButton(string expression, object value, bool? isChecked, object htmlAttributes)
-            => new htmlContentMock("RadioButton");
+        {
+            throw new NotImplementedException();
+        }
 
-        IHtmlContent IHtmlHelper.Raw(object value) => new htmlContentMock("RawValue");
+        IHtmlContent IHtmlHelper.Raw(object value)
+        {
+            throw new NotImplementedException();
+        }
 
-        IHtmlContent IHtmlHelper.Raw(string value) => new htmlContentMock("RawString");
+        IHtmlContent IHtmlHelper.Raw(string value)
+        {
+            throw new NotImplementedException();
+        }
 
-        public async Task RenderPartialAsync(string partialViewName, object model, ViewDataDictionary viewData) {
+        public async Task RenderPartialAsync(string partialViewName, object model, ViewDataDictionary viewData)
+        {
             await Task.CompletedTask;
         }
 
-        public IHtmlContent RouteLink(string linkText, string routeName, string protocol, string hostName,
-            string fragment,
+        public IHtmlContent RouteLink(string linkText, string routeName, string protocol, string hostName, string fragment,
             object routeValues, object htmlAttributes)
-            => new htmlContentMock("RouteLink");
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent TextArea(string expression, string value, int rows, int columns, object htmlAttributes)
-            => new htmlContentMock("TextArea");
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent TextBox(string expression, object value, string format, object htmlAttributes)
-            => new htmlContentMock("TextBox");
+        {
+            throw new NotImplementedException();
+        }
 
         public IHtmlContent ValidationMessage(string expression, string message, object htmlAttributes, string tag)
-            => new htmlContentMock("ValidationMessage");
+        {
+            throw new NotImplementedException();
+        }
 
-        public IHtmlContent ValidationSummary(bool excludePropertyErrors, string message, object htmlAttributes,
-            string tag)
-            => new htmlContentMock("ValidationSummary");
+        public IHtmlContent ValidationSummary(bool excludePropertyErrors, string message, object htmlAttributes, string tag)
+        {
+            throw new NotImplementedException();
+        }
 
         public string Value(string expression, string format)
-            => "Value";
+        {
+            throw new NotImplementedException();
+        }
 
         public Html5DateRenderingMode Html5DateRenderingMode { get; set; }
         public string IdAttributeDotReplacement { get; } = null;
@@ -196,7 +297,5 @@ namespace Abc.Tests {
         public dynamic ViewBag { get; } = null;
         public ViewContext ViewContext { get; } = null;
         ViewDataDictionary IHtmlHelper.ViewData => ViewData;
-
     }
-
 }

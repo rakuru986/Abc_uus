@@ -1,12 +1,14 @@
 using Abc.Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Abc.Tests.Data.Common {
-
+namespace Abc.Tests.Data.Common
+{
     [TestClass]
-    public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData,PeriodData>
+    public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData, PeriodData>
     {
-        private class testClass : UniqueEntityData { }
+        private class testClass : UniqueEntityData
+        {
+        }
 
         [TestInitialize]
         public override void TestInitialize()
@@ -14,11 +16,11 @@ namespace Abc.Tests.Data.Common {
             base.TestInitialize();
             obj = new testClass();
         }
+
         [TestMethod]
         public void IdTest()
         {
-            isNullableProperty(() => obj.Id, x => obj.Id = x);
+            isNullableProperty(() => obj.Id, X => obj.Id = X);
         }
     }
-
 }

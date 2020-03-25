@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Abc.Soft
+namespace Soft
 {
     public class Program
     {
@@ -11,10 +11,11 @@ namespace Abc.Soft
         {
             var host = CreateHostBuilder(args).Build();
 
-            using (var scope = host.Services.CreateScope()) {
+            using (var scope = host.Services.CreateScope())
+            {
                 var services = scope.ServiceProvider;
                 var dbQuantity = services.GetRequiredService<QuantityDbContext>();
-                QuantityDbInitializer.Initialize(dbQuantity);
+                QuantityDbInitializer.initialize(dbQuantity);
             }
 
             host.Run();

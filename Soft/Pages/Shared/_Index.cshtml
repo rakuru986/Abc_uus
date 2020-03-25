@@ -4,6 +4,7 @@
     ViewData["Title"] = Model.PageTitle;
 }
 
+
     <p>
         <h1>@ViewData["Title"]</h1>
         <h4>@Model.PageSubTitle</h4>
@@ -19,7 +20,7 @@
                 &nbsp;
                 <input class="form-control" type="text" name="SearchString" value="@Model.SearchString" />
                 &nbsp;
-                <input type="submit" value="Search" class="btn btn-light" />
+                <input type="submit" value="Search" class="btn btn-primary" />
                 &nbsp;
                 <a asp-page="./Index"
                    asp-route-fixedFilter="@Model.FixedFilter"
@@ -29,14 +30,12 @@
     </form>
 
 <p />
-
 @RenderBody()
 
 @{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
-
 
 <div class="form-inline">
 
@@ -46,7 +45,7 @@
        asp-route-currentFilter="@Model.SearchString"
        asp-route-fixedFilter="@Model.FixedFilter"
        asp-route-fixedValue="@Model.FixedValue"
-       class="btn btn-link @prevDisabled">
+       class="btn btn-primary @prevDisabled">
         First
     </a>
     &nbsp;
@@ -56,7 +55,7 @@
        asp-route-currentFilter="@Model.SearchString"
        asp-route-fixedFilter="@Model.FixedFilter"
        asp-route-fixedValue="@Model.FixedValue"
-       class="btn btn-link @prevDisabled">
+       class="btn btn-primary @prevDisabled">
         Previous
     </a>
     &nbsp;
@@ -68,7 +67,7 @@
        asp-route-currentFilter="@Model.SearchString"
        asp-route-fixedFilter="@Model.FixedFilter"
        asp-route-fixedValue="@Model.FixedValue"
-       class="btn btn-link @nextDisabled">
+       class="btn btn-primary @nextDisabled">
         Next
     </a>
     &nbsp;
@@ -78,8 +77,7 @@
        asp-route-currentFilter="@Model.SearchString"
        asp-route-fixedFilter="@Model.FixedFilter"
        asp-route-fixedValue="@Model.FixedValue"
-       class="btn btn-link @nextDisabled">
+       class="btn btn-primary @nextDisabled">
         Last
     </a>
-
 </div>

@@ -1,9 +1,9 @@
-﻿namespace Abc.Facade.Common {
+﻿using Abc.Facade.Quantity;
 
-    public abstract class DefinedView : NamedView {
-
+namespace Abc.Facade.Common
+{
+    public  abstract class DefinedView: NamedView
+    {
         public string Definition { get; set; }
-
     }
-
 }

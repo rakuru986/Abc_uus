@@ -1,7 +1,6 @@
 ﻿namespace Abc.Domain.Common
 {
-    public interface IRepository<T> : ICrudMethods<T>, ISorting, IFiltering, IPaging {
-
-
+    public interface IRepository<T>: ICrudMethods<T>, IPaging, ISorting, IFiltering
+    {
     }
 }

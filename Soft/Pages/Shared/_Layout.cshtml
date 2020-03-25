@@ -24,29 +24,24 @@
                             new Link("Marketing", "/Processes/Marketing"),
                             new Link("CRM", "/Processes/CRM"),
                             new Link("Recruiting", "/Processes/Recruiting"),
-                            new Link("Catalog", "/Inventory/Catalog"),
+                            new Link("Catalogs", "/Inventory/Catalogs"),
                             new Link("Inventory", "/Inventory/Inventory"),
                             new Link("Sales", "/Orders/Sales"),
                             new Link("Purchases", "/Orders/Purchases"),
                             new Link("Persons", "/Party/Persons"),
-                            new Link("Organizations", "/Party/Organizations"))
+                            new Link("Organization", "/Party/Organizations"))
                         @Html.DropDownNavigationMenuFor("Data",
                             new Link("Measures", "/Quantity/Measures"),
-                            new Link("Measure Terms", "/Quantity/MeasureTerms"),
                             new Link("Units", "/Quantity/Units"),
-                            new Link("Systems of Units", "/Quantity/SystemsOfUnits"),
-                            new Link("Unit Terms", "/Quantity/UnitTerms"),
-                            new Link("Unit Factors", "/Quantity/UnitFactors"),
                             new Link("Currencies", "/Money/Currencies"),
                             new Link("Countries", "/Party/Countries"),
                             new Link("Roles", "/Party/Roles"),
                             new Link("Products", "/Inventory/Products"),
-                            new Link("Calculator", "/Calculator")
-                            )
+                            new Link("Calculator", "/Quantity/Calculator"))
                         @Html.DropDownNavigationMenuFor("Help",
                             new Link("About", "/Index"),
-                            new Link("Privacy", "/Privacy")
-                            )
+                            new Link("Privacy", "/Privacy"))
+
                     </ul>
                 </div>
             </div>
@@ -60,7 +55,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - Soft - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2020 - Soft - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
@@ -68,6 +63,8 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="_framework/blazor.server.js"></script>
+
+
 
     @RenderSection("Scripts", required: false)
 </body>

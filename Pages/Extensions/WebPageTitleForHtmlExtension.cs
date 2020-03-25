@@ -8,16 +8,12 @@ namespace Abc.Pages.Extensions {
         public static IHtmlContent WebPageTitleFor(
             this IHtmlHelper htmlHelper, string title) {
             htmlHelper.ViewData["Title"] = title;
-            var s = htmlStrings(title);
-            return new HtmlContentBuilder(s);
-        }
-
-        internal static List<object> htmlStrings(string title) {
-            return new List<object> {
+            var htmlStrings = new List<object> {
                 new HtmlString("<h1>"),
                 new HtmlString(title),
                 new HtmlString("</h1>")
             };
+            return new HtmlContentBuilder(htmlStrings);
         }
 
     }

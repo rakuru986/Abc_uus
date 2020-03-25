@@ -9,7 +9,6 @@ namespace Abc.Pages.Extensions
         public const string EditLinkTitle = "Edit";
         public const string DetailsLinkTitle = "Details";
         public const string DeleteLinkTitle = "Delete";
-        public const string SelectLinkTitle = "Select";
 
         public const string BusinessMenuTitle = "Business";
         public const string PartiesMenuTitle = "Parties";

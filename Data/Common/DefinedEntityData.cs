@@ -1,9 +1,10 @@
-﻿namespace Abc.Data.Common {
+﻿using System.Collections.Generic;
+using System.Text;
 
-    public abstract class DefinedEntityData : NamedEntityData {
-
+namespace Abc.Data.Common
+{
+    public abstract class DefinedEntityData: NamedEntityData
+    { 
         public string Definition { get; set; }
-
     }
-
 }

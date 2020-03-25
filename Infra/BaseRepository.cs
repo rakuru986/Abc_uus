@@ -7,64 +7,60 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Abc.Infra
 {
-
     public abstract class BaseRepository<TDomain, TData> : ICrudMethods<TDomain>
-        where TData : PeriodData, new()
+        where TData : PeriodData, new() 
         where TDomain : Entity<TData>, new()
     {
-
         protected internal DbContext db;
         protected internal DbSet<TData> dbSet;
-
 
         protected BaseRepository(DbContext c, DbSet<TData> s)
         {
             db = c;
             dbSet = s;
         }
-
         public virtual async Task<List<TDomain>> Get()
         {
-            var query = createSqlQuery();
+            var  query = createSqlQuery();
             var set = await runSqlQueryAsync(query);
-
-            return toDomainObjectsList(set);
+            
+            return toDomainObjectList(set);
         }
 
-        internal List<TDomain> toDomainObjectsList(List<TData> set) => set.Select(toDomainObject).ToList();
+        private List<TDomain> toDomainObjectList(List<TData> set) => set.Select(toDomainObject).ToList();
+        
 
         protected internal abstract TDomain toDomainObject(TData periodData);
-
+        
         internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
+        
 
         protected internal virtual IQueryable<TData> createSqlQuery()
         {
             var query = from s in dbSet select s;
-
             return query;
         }
 
         public async Task<TDomain> Get(string id)
         {
-            if (id is null) return new TDomain();
+            if ( id is null) return new  TDomain();
 
             var d = await getData(id);
-
-            var obj = toDomainObject(d);
-
+            var obj = new TDomain {Data = d};
             return obj;
         }
 
         protected abstract Task<TData> getData(string id);
+        
 
         public async Task Delete(string id)
         {
             if (id is null) return;
+            var d = await dbSet.FindAsync(id);
 
-            var v = await getData(id);
+            if (d is null) return;
 
-            if (v is null) return;
-            dbSet.Remove(v);
+            dbSet.Remove(d);
             await db.SaveChangesAsync();
         }
 
@@ -79,7 +75,10 @@ namespace Abc.Infra
         {
             db.Attach(obj.Data).State = EntityState.Modified;
 
-            try { await db.SaveChangesAsync(); }
+            try
+            {
+                await db.SaveChangesAsync();
+            }
             catch (DbUpdateConcurrencyException)
             {
                 //if (!MeasureViewExists(MeasureView.Id))
@@ -91,9 +90,6 @@ namespace Abc.Infra
                 throw;
                 //}
             }
-
         }
-
     }
-
 }
