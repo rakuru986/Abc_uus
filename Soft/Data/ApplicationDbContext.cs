@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Abc.Facade.Quantity;
 using Abc.Infra.Quantity;
 
-namespace Soft.Data
+namespace Abc.Soft.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -15,10 +11,14 @@ namespace Soft.Data
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
+        protected override void OnModelCreating(ModelBuilder builder) {
             base.OnModelCreating(builder);
-            QuantityDbContext.InitializeTabels(builder);
+            initializeTables(builder);
         }
+
+        internal void initializeTables(ModelBuilder builder) {
+            QuantityDbContext.InitializeTables(builder);
+        }
+
     }
 }

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Abc.Domain.Quantity.Quantity">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="getCode" Hidden="true" />
+      <Method Name="Quantity" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+      <Field Name="unit" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAgAAAEIAAAAACAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Quantity\Quantity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Unit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Abc.Domain.Quantity.Unit">
+    <Position X="3.75" Y="2.5" Width="2.25" />
+    <Members>
+      <Field Name="measure" Hidden="true" />
+      <Field Name="unitFactors" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Terms" Type="Abc.Domain.Quantity.UnitTerm" FixedFromPoint="true">
+      <Path>
+        <Point X="3.75" Y="2.688" />
+        <Point X="2.75" Y="2.688" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAACAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Quantity\Unit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Measure" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Terms" />
+      <Property Name="Factors" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Abc.Domain.Quantity.SystemOfUnits">
+    <Position X="7" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quantity\SystemOfUnits.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Abc.Domain.Quantity.UnitFactor">
+    <Position X="7" Y="2.5" Width="2.25" />
+    <Members>
+      <Field Name="systemOfUnits" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAA=</HashCode>
+      <FileName>Quantity\UnitFactor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SystemOfUnits" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Abc.Domain.Quantity.MeasureTerm">
+    <Position X="0.75" Y="6.25" Width="2" />
+    <Members>
+      <Field Name="measure" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Measure" Type="Abc.Domain.Quantity.Measure" FixedFromPoint="true">
+      <Path>
+        <Point X="2.75" Y="7.312" />
+        <Point X="3.75" Y="7.312" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Quantity\MeasureTerm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Measure" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Abc.Domain.Quantity.UnitTerm">
+    <Position X="0.75" Y="2.5" Width="2" />
+    <Members>
+      <Field Name="unit" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Unit" Type="Abc.Domain.Quantity.Unit" FixedFromPoint="true">
+      <Path>
+        <Point X="2.75" Y="3.625" />
+        <Point X="3.75" Y="3.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quantity\UnitTerm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Unit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Abc.Domain.Quantity.Measure">
+    <Position X="3.75" Y="6.25" Width="2.25" />
+    <AssociationLine Name="Terms" Type="Abc.Domain.Quantity.MeasureTerm" FixedFromPoint="true">
+      <Path>
+        <Point X="3.75" Y="6.375" />
+        <Point X="2.75" Y="6.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Quantity\Measure.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Terms" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Abc.Domain.Common.Term&lt;TData&gt;">
+    <Position X="0.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Term.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

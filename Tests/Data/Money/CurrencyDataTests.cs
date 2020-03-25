@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Abc.Tests.Data.Money
 {
     [TestClass]
-    public class CurrencyDataTests : SealedClassTests<CurrencyData, DefinedEntityData>
+    public class CurrencyDataTests: SealedClassTests<CurrencyData, DefinedEntityData>
     {
     }
 }

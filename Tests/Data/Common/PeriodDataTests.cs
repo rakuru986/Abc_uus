@@ -1,15 +1,12 @@
 using Abc.Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Abc.Tests.Data.Common
-{
+namespace Abc.Tests.Data.Common {
+
     [TestClass]
     public class PeriodDataTests : AbstractClassTests<PeriodData, object>
     {
-
-        private class testClass : PeriodData
-        {
-        }
+        private class testClass : PeriodData { }
 
         [TestInitialize]
         public override void TestInitialize()
@@ -17,9 +14,8 @@ namespace Abc.Tests.Data.Common
             base.TestInitialize();
             obj = new testClass();
         }
-        [TestMethod]
-        public void ValidFromTest()
-        {
+
+        [TestMethod] public void ValidFromTest() {
             isNullableProperty(() => obj.ValidFrom, x => obj.ValidFrom = x);
         }
 
@@ -29,4 +25,5 @@ namespace Abc.Tests.Data.Common
             isNullableProperty(() => obj.ValidTo, x => obj.ValidTo = x);
         }
     }
+
 }

@@ -1,14 +1,12 @@
 using Abc.Data.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Abc.Tests.Data.Common
-{
+namespace Abc.Tests.Data.Common {
+
     [TestClass]
     public class NamedEntityDataTests : AbstractClassTests<NamedEntityData, UniqueEntityData>
     {
-        private class testClass : NamedEntityData
-        {
-        }
+        private class testClass : NamedEntityData { }
 
         [TestInitialize]
         public override void TestInitialize()
@@ -16,16 +14,16 @@ namespace Abc.Tests.Data.Common
             base.TestInitialize();
             obj = new testClass();
         }
-
         [TestMethod]
         public void NameTest()
         {
-            isNullableProperty(() => obj.Name, X => obj.Name= X);
+            isNullableProperty(() => obj.Name, x => obj.Name = x);
         }
         [TestMethod]
         public void CodeTest()
         {
-            isNullableProperty(() => obj.Code, X => obj.Code= X);
+            isNullableProperty(() => obj.Code, x => obj.Code= x);
         }
     }
+
 }

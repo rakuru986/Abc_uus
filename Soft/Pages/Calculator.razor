@@ -1,0 +1,126 @@
+﻿@page "/calculator"
+@using Abc.Domain.Quantity
+@using Microsoft.AspNetCore.Mvc.Rendering;
+@inject IUnitsRepository Units
+@inject IUnitFactorsRepository UnitFactors
+<h1>Calculator</h1>
+
+@*<p>Current count: @currentCount</p>
+
+    <button class="btn btn-primary" @onclick="incrementCount">Click me</button>*@
+
+@code {
+    List<SelectListItem> unitsList;
+    List<Unit> units;
+    List<UnitFactor> unitFactors;
+    int currentCount = 0;
+    string amount = "";
+    string unit = "";
+    string history = "";
+    void incrementCount()
+    {
+        currentCount++;
+    }
+    void ceClick() { }
+    void returnClick() { }
+    void persentageClick() { }
+    void addClick() { }
+
+    void numberClick(int number)
+    {
+        amount += number.ToString();
+    }
+    void subtractClick() { }
+    void multiplyClick() { }
+    void divideClick() { }
+    void signClick() { }
+    void commaClick() { }
+    void equalsClick() { }
+    void noClick() { }
+
+    void unitClicked(ChangeEventArgs e) {
+        unit = e.Value.ToString();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        units = await Units.Get();
+        unitFactors = await UnitFactors.Get();
+        unitsList = units.Select(m => new SelectListItem(m.Data.Name, m.Data.Id)).ToList();
+    }}
+
+<div>
+    @if (unitFactors == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <table>
+            <tr>
+                <td colspan="7">
+                    <input style="text-align: right;" class="form-control" type="text" readonly="readonly" name="Result" value=@($"{amount} {unit}") />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button style="width: 92px" class="btn btn-light" @onclick="noClick">Rounding</button></td>
+                <td colspan="2"><button style="width: 92px" class="btn btn-light" @onclick="noClick">Digit</button></td>
+                <td colspan="2"><button style="width: 92px"  class="btn btn-light" @onclick="noClick">Number</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">Step</button></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <select style="width: 138px" id ="unitsCombo" class="form-control" @onchange=unitClicked>
+                        <option value="">-- Select Unit --</option>
+                        @if (unitsList != null)
+                        {
+                            @foreach (var u in unitsList)
+                            {
+                                <option value="@u.Value">@u.Text</option>
+                            }
+                        }
+                    </select>
+                </td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="ceClick">CE</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="returnClick">&larr;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="persentageClick">%</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="signClick">&plusmn;</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(7))>7</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(8))>8</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(9))>9</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="divideClick">&divide;</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(4))>4</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(5))>5</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(6))>6</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="multiplyClick">*</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(1))>1</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(2))>2</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(3))>3</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="subtractClick">-</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="noClick">&nbsp;</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick=@(() => numberClick(0))>0</button></td>
+                <td><button style="width: 46px" class="btn btn-secondary" @onclick="commaClick">.</button></td>
+                <td><button style="width: 46px" class="btn btn-primary" @onclick="equalsClick">=</button></td>
+                <td><button style="width: 46px" class="btn btn-light" @onclick="addClick">+</button></td>
+            </tr>
+        </table>
+    }
+</div>

@@ -1,10 +1,7 @@
 ﻿using Abc.Domain.Common;
 
-namespace Abc.Domain.Quantity
-{
-    public  interface IMeasuresRepository: IRepository<Measure>
-    {
-      
-     
-    }
+namespace Abc.Domain.Quantity {
+
+    public interface IMeasuresRepository : IRepository<Measure> { }
+
 }

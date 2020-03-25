@@ -4,7 +4,7 @@
 }
 
 <p>
-    <h1>Edit</h1>
+    <h1>@ViewData["Title"]</h1>
 </p>
 
 <h4>Edit</h4>
@@ -13,7 +13,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+
             @RenderBody()
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -25,6 +25,9 @@
 <div>
     <a asp-page="./Index"
        asp-route-fixedFilter="@Model.FixedFilter"
+       asp-route-sortOrder="@Model.SortOrder"
+       asp-route-searchString="@Model.SearchString"
+       asp-route-pageIndex="@Model.PageIndex"
        asp-route-fixedValue="@Model.FixedValue">Back to full List</a>
 </div>
 

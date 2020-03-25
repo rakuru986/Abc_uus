@@ -1,0 +1,7 @@
+﻿@page
+@model Abc.Soft.Pages.CalculatorModel
+@{
+}
+<script src="~/_framework/blazor.server.js"></script>
+
+<component>@(await Html.RenderComponentAsync<Calculator>(RenderMode.Server))</component>

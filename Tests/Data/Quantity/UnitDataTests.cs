@@ -5,12 +5,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Abc.Tests.Data.Quantity
 {
     [TestClass]
-    public class UnitDataTests: SealedClassTests<UnitData, DefinedEntityData>
+    public class UnitDataTests: SealedClassTests<UnitData, CommonMetricData>
     {
         [TestMethod]
         public void MeasureIdTest()
         {
-            isNullableProperty(() => obj.MeasureId, X => obj.MeasureId = X);
+            isNullableProperty(() => obj.MeasureId, x => obj.MeasureId = x);
         }
     }
 }
