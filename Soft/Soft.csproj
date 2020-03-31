@@ -4,7 +4,6 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>aspnet-Soft-A29280FB-D772-430C-8565-4A93DF957796</UserSecretsId>
     <AssemblyName>Abc.Soft</AssemblyName>
-    <RootNamespace>Abc.Soft</RootNamespace>
   </PropertyGroup>
 
 
