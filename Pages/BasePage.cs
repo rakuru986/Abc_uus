@@ -30,10 +30,7 @@ namespace Abc.Pages
         public string PageSubTitle => getPageSubTitle();
         public string IndexUrl => getIndexUrl();
 
-        protected internal string getIndexUrl()
-        {
-           return $"{PageUrl}/Quantity/Measures/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}";
-        }
+        protected internal string getIndexUrl() => $"{PageUrl}/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}";
 
         public string PageUrl => getPageUrl();
 
