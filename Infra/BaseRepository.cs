@@ -73,23 +73,15 @@ namespace Abc.Infra
 
         public async Task Update(TDomain obj)
         {
-            db.Attach(obj.Data).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                //if (!MeasureViewExists(MeasureView.Id))
-                //{
-                //    return NotFound();
-                //}
-                //else
-                //{
-                throw;
-                //}
-            }
+            if (obj is null) return;
+            var v = await dbSet.FindAsync(getId(obj));
+            if (v is null) return;
+            dbSet.Remove(v);
+            dbSet.Add(obj.Data);
+            await db.SaveChangesAsync();
         }
+
+        protected abstract string getId(TDomain entity);
+
     }
 }
