@@ -2,10 +2,11 @@
 
 namespace Abc.Data.Quantity
 {
-    public class CommonTerm : PeriodData
+    public abstract class CommonTermData : PeriodData
     {
+        public int Power { get; set; }
+
         public string MasterId { get; set; }
         public string TermId { get; set; }
-        public int Power { get; set; }
     }
 }
