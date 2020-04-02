@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Abc.Aids;
-using Abc.Data.Common;
 using Abc.Facade.Common;
 
 namespace Abc.Facade.Quantity

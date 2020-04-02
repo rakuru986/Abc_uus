@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Abc.Facade.Common;
+﻿using Abc.Facade.Common;
 
 namespace Abc.Facade.Quantity
 {
