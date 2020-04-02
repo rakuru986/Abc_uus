@@ -25,7 +25,7 @@ namespace Abc.Infra
 
         internal int getTotalpages(in int pageSize)
         {
-            var count = getItemCount();
+            var count = getItemsCount();
             var pages = countTotalPages(count, pageSize);
             return pages;
         }
@@ -34,11 +34,11 @@ namespace Abc.Infra
         internal int countTotalPages(int count, in int pageSize) => (int)Math.Ceiling(count / (double)pageSize);
         
 
-        internal int getItemCount() => base.createSqlQuery().CountAsync().Result;
+        internal virtual int getItemsCount() => base.createSqlQuery().CountAsync().Result;
         
         protected internal override IQueryable<TData> createSqlQuery() => addSkipAndTake(base.createSqlQuery());
 
-        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
+        internal IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
         {
             if (PageIndex < 1) return query;
             return query

@@ -15,7 +15,6 @@ namespace Abc.Tests.Infra
     [TestClass]
     public class FilteredRepositoryTests : AbstractClassTests<FilteredRepository<Measure, MeasureData>, SortedRepository<Measure, MeasureData>>
     {
-        
         private class testClass :FilteredRepository<Measure, MeasureData>
         {
             public testClass(DbContext c, DbSet<MeasureData> s) : base(c, s)
