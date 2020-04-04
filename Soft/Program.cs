@@ -15,7 +15,7 @@ namespace Soft
             {
                 var services = scope.ServiceProvider;
                 var dbQuantity = services.GetRequiredService<QuantityDbContext>();
-                QuantityDbInitializer.initialize(dbQuantity);
+                QuantityDbInitializer.Initialize(dbQuantity);
             }
 
             host.Run();

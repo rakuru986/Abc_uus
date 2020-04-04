@@ -24,14 +24,26 @@ namespace Abc.Tests.Infra.Quantity
                 .Options;
             db = new QuantityDbContext(options);
             obj = new MeasuresRepository(db);
+            
+            count = GetRandom.UInt8(20, 40);
+            cleanDbSet();
+            addItems();
+
+        }
+
+        [TestCleanup]
+        public void TestCleanUp()
+        {
+            cleanDbSet();
+        }
+
+        private void cleanDbSet()
+        {
             foreach (var p in db.Measures)
             {
                 db.Entry(p).State = EntityState.Deleted;
+                db.SaveChanges();
             }
-
-            count = GetRandom.UInt8(10, 30);
-            addItems();
-
         }
 
         private void addItems()
