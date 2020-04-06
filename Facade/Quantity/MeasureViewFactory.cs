@@ -17,7 +17,7 @@ namespace Abc.Facade.Quantity
         public static MeasureView Create(Measure o)
         {
             var v = new MeasureView();
-            Copy.Members(o.Data, v);
+            if (!(o?.Data is null)) Copy.Members(o.Data, v);
            
             return v;
 
