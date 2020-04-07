@@ -9,7 +9,7 @@ namespace Abc.Tests
         where TObj: Entity<TData>
         where TData:UniqueEntityData, new()
     {
-        private readonly List<TObj> list;
+        internal readonly List<TObj> list;
         public baseTestRepository()
         {
          list = new List<TObj>();   
@@ -49,7 +49,7 @@ namespace Abc.Tests
 
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
-        public int TotalPages { get; }
+        public int TotalPages { get; set; }
         public bool HasNextPage { get; set; }
         public bool HasPreviousPage { get; set; }
         public string SortOrder { get; set; }
