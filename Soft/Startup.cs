@@ -35,6 +35,10 @@ namespace Soft
             services.AddRazorPages();
             services.AddScoped<IMeasuresRepository, MeasuresRepository>();
             services.AddScoped<IUnitsRepository, UnitsRepository>();
+            services.AddScoped<IUnitTermsRepository, UnitTermsRepository>();
+            services.AddScoped<IMeasureTermsRepository, MeasureTermsRepository>();
+            services.AddScoped<ISystemsOfUnitsRepository, SystemsOfUnitsRepository>();
+            services.AddScoped<IUnitFactorsRepository, UnitFactorsRepository>();
             services.AddServerSideBlazor();
         }
 
