@@ -14,7 +14,7 @@ namespace Abc.Tests.Pages.Quantity
     {
         private class testClass : UnitsPage
         {
-            internal testClass(IUnitsRepository r, IMeasuresRepository m) : base(r, m)
+            internal testClass(IUnitsRepository r, IMeasuresRepository m) : base(r, m, null, null)
             {
             }
         }

@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>aspnet-Soft-A29280FB-D772-430C-8565-4A93DF957796</UserSecretsId>
     <AssemblyName>Abc.Soft</AssemblyName>
+    <RootNamespace>Abc.Soft</RootNamespace>
   </PropertyGroup>
 
 
@@ -20,7 +21,9 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Facade\Facade.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
     <ProjectReference Include="..\Pages\Pages.csproj" />
   </ItemGroup>
 
