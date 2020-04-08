@@ -2,13 +2,13 @@
 using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 
-namespace Soft.Areas.Quantity.Pages.UnitTerms
+namespace Abc.Soft.Areas.Quantity.Pages.UnitTerms
 {
     public class IndexModel : UnitTermsPage
     {
         
 
-        public IndexModel(IUnitTermsRepository r) : base(r)
+        public IndexModel(IUnitTermsRepository r, IUnitsRepository u) : base(r, u)
         {
         }
         public async Task OnGetAsync(string sortOrder,

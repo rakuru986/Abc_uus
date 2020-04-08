@@ -3,7 +3,7 @@ using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Soft.Areas.Quantity.Pages.UnitFactors
+namespace Abc.Soft.Areas.Quantity.Pages.UnitFactors
 {
     public class EditModel : UnitFactorsPage
     {

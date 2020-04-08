@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Abc.Data.Quantity;
 using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Abc.Pages.Quantity
 {
@@ -11,9 +10,8 @@ namespace Abc.Pages.Quantity
     {
         protected internal UnitFactorsPage(IUnitFactorsRepository r) : base(r)
         {
-            PageTitle = "Unit factors";
+            PageTitle = "Unit Factors";
         }
-
 
         public override string ItemId
         {

@@ -19,23 +19,23 @@ namespace Abc.Tests.Pages.Quantity
             }
         }
 
-        private class unitsRepository : baseTestRepository<Unit, UnitData>, IUnitsRepository
+        private class UnitsRepositoryForUniqueEntity : baseTestRepositoryForUniqueEntity<Unit, UnitData>, IUnitsRepository
         {
 
         }
-        private class measuresRepository : baseTestRepository<Measure, MeasureData>, IMeasuresRepository
+        private class MeasuresRepositoryForUniqueEntity : baseTestRepositoryForUniqueEntity<Measure, MeasureData>, IMeasuresRepository
         {
 
         }
-        private unitsRepository units;
-        private measuresRepository measures;
+        private UnitsRepositoryForUniqueEntity units;
+        private MeasuresRepositoryForUniqueEntity measures;
         private MeasureData data;
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
-            units = new unitsRepository();
-            measures = new measuresRepository();
+            units = new UnitsRepositoryForUniqueEntity();
+            measures = new MeasuresRepositoryForUniqueEntity();
             data = GetRandom.Object<MeasureData>();
             var m = new Measure(data);
             measures.Add(m).GetAwaiter();

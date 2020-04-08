@@ -14,5 +14,11 @@ namespace Abc.Tests.Pages.Extensions
         {
             Assert.Inconclusive();
         }
+        
+        [TestMethod]
+        public void TableRowWithSelectForTest()
+        {
+            Assert.Inconclusive();
+        }
     }
 }

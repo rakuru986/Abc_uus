@@ -2,7 +2,7 @@
 using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 
-namespace Soft.Areas.Quantity.Pages.Measures
+namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
     public class IndexModel : MeasuresPage
     {

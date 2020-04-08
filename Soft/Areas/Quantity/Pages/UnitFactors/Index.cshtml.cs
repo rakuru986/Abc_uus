@@ -2,7 +2,7 @@
 using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 
-namespace Soft.Areas.Quantity.Pages.UnitFactors
+namespace Abc.Soft.Areas.Quantity.Pages.UnitFactors
 {
     public class IndexModel : UnitFactorsPage
     {

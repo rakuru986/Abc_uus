@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Abc.Pages.Extensions {
+namespace Abc.Pages.Extensions
+{
     public static class TableRowForHtmlExtension
     {
         public static IHtmlContent TableRowFor(

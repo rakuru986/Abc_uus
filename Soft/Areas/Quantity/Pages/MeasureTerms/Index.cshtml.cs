@@ -2,7 +2,7 @@
 using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 
-namespace Soft.Areas.Quantity.Pages.MeasureTerms
+namespace Abc.Soft.Areas.Quantity.Pages.MeasureTerms
 {
     public class IndexModel : MeasureTermsPage
     {

@@ -3,11 +3,11 @@ using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Soft.Areas.Quantity.Pages.UnitTerms
+namespace Abc.Soft.Areas.Quantity.Pages.UnitTerms
 {
     public class CreateModel : UnitTermsPage
     {
-        public CreateModel(IUnitTermsRepository r) : base(r)
+        public CreateModel(IUnitTermsRepository r, IUnitsRepository u) : base(r, u)
         {
         }
 
